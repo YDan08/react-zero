@@ -1,4 +1,5 @@
 const path = require("path")
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -13,6 +14,18 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
